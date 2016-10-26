@@ -41,5 +41,8 @@ stopWatch.update = function () {
   minutes = timeElapsed.getUTCMinutes();
   seconds = timeElapsed.getUTCSeconds();
   milliseconds = timeElapsed.getUTCMilliseconds();
-  console.log(seconds)
+  console.log(seconds);
+  time=hours+':'+minutes+':'+seconds+':'+milliseconds;
+  console.log(time);
+  document.getElementsByClassName('display')[0].innerText=time;
 };
