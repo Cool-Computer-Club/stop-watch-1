@@ -21,7 +21,7 @@ QUnit.test( "testing if we can change the time", function( assert ) {
   assert.strictEqual(stopWatch.getTime(), '05:02:02', "Passed!" );
 });
 
-QUnit.test( "testing if we can change the time", function( assert ) {
+QUnit.test( "testing if we can reset the time", function( assert ) {
   stopWatch.resetTime();
   assert.strictEqual(stopWatch.getTime(), '00:00:00', "Passed!" );
 });
