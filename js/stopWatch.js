@@ -6,9 +6,12 @@ stopWatch.getTime = function () {
 
 stopWatch.isActive = function () {
   return active;
-
 }
 
-stopWatch.start = function() {
-  active=true;
+stopWatch.start = function () {
+  active = true;
+}
+
+stopWatch.stop = function () {
+  active = false;
 }
