@@ -1,9 +1,14 @@
 var stopWatch= {}
-
+var active=false;
 stopWatch.getTime = function () {
     return '00:00:00';
   };
 
 stopWatch.isActive = function () {
-  return false;
+  return active;
+
+}
+
+stopWatch.start = function() {
+  active=true;
 }
