@@ -15,3 +15,8 @@ QUnit.test( "testing if we can stop the stopwatch", function( assert ) {
   stopWatch.stop();
   assert.strictEqual(stopWatch.isActive(), false, "Passed!" );
 });
+
+QUnit.test( "testing if we can change the time", function( assert ) {
+  stopWatch.setTime('05:02:02');
+  assert.strictEqual(stopWatch.getTime(), '05:02:02', "Passed!" );
+});
