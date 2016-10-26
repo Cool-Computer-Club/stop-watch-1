@@ -20,3 +20,7 @@ stopWatch.stop = function () {
 stopWatch.setTime = function (newTime){
   time=newTime;
 }
+
+stopWatch.resetTime = function () {
+  stopWatch.setTime('00:00:00');
+}
