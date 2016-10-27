@@ -1,7 +1,8 @@
 active=false;
 
 var stopWatch = (function() {
-  var self= {}, time='00:00:00:000', startTime, hours, minutes, seconds, milliseconds, timeElapsed, timerRunning, stopedTime=0;
+  var self= {}, time='00:00:00:000', startTime, hours, minutes, seconds,
+      milliseconds, timeElapsed, timerRunning, stopedTime=0;
 
   self.getTime = function () {return time;};
 
