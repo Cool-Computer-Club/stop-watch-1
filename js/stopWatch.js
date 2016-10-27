@@ -1,9 +1,10 @@
 active=false;
 var seconds;
-
+var timeElapsed;
+var stopedTime=0;
 var stopWatch = (function() {
   var self= {}, time='00:00:00:000', startTime, hours, minutes,
-      milliseconds, timeElapsed, timerRunning, stopedTime=0;
+      milliseconds, timerRunning;
 
   self.getTime = function () {return time;};
 
@@ -46,6 +47,7 @@ var stopWatch = (function() {
     minutes = timeElapsed.getUTCMinutes();
     seconds = timeElapsed.getUTCSeconds();
     milliseconds = timeElapsed.getUTCMilliseconds();
+    console.log(seconds);
     var strHours = hours.toString();
     var strMinutes = minutes.toString();
     var strSeconds=seconds.toString();
