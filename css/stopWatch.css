@@ -57,7 +57,7 @@ body {
   height: 0;
   border-left: 200px solid transparent;
   border-right: 400px solid transparent;
-  border-top: 700px solid #f00;
+  border-top: 700px solid #E94F37;
   z-index: -1;
   position: absolute;;
   top: 50px;
@@ -72,7 +72,7 @@ body {
   height: 0;
   border-left: 250px solid transparent;
   border-right: 230px solid transparent;
-  border-top: 620px solid yellow;
+  border-top: 620px solid #BFBC1E;
   z-index: -1;
   position: absolute;;
   top: 50px;

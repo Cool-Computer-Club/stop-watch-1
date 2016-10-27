@@ -62,7 +62,7 @@ QUnit.test("Asynch Test", function( assert ) {
   stopWatch.resetTime();
   stopWatch.startTime();
   setTimeout(function() {
-    assert.strictEqual(stopWatch.seconds, '03', "got the right time!");
+    assert.strictEqual(seconds, '03', "got the right time!");
     done;
   }, 3100);
 });
