@@ -1,54 +1,66 @@
-active=false;
-var seconds;
-var stoppedTime = 0;
-
 var stopWatch = (function() {
-  var self= {}, time='00:00:00.000', startTime, timeElapsed, timerRunning;
+  var self= {}, startTime, timeElapsed = 0, updateInterval, active=false, stoppedTime = 0;
 
-  self.getTime = function () {return time;};
+  function getTimeElapsed () {return (Date.now() - startTime + stoppedTime);
+  }
 
-  self.isActive = function () { return active;}
-  // isactive and gettime are not used in the js code and they are only good for the test code. oops
+  function getFormatedTimeElapsed () {return formatTime(getTimeElapsed());}
+
+  function formatTime(timeElapsed) {
+    return (new Date(timeElapsed)).toISOString().substring(11,23);
+  }
+
+  function updateDisplay (currentTime) {
+    document.getElementsByClassName('display')[0].innerText=currentTime;
+  }
+
+  function secondsFromFormatedTime (formatedTime) {
+    return formatedTime.substring(6,8);
+  }
+
+  self.getStoppedTime= function () {return stoppedTime;};
+
+  self.isActive = function () {return active;};
+
+  // self.setTime = function (newTime) {time = newTime;};
+
+  self.getTime = function () {return formatTime(timeElapsed);};
+
+  self.getSeconds = function () {return secondsFromFormatedTime(formatTime(timeElapsed));};
+
 
   self.startTime = function () {
-    if (!active) {
-      startTime = Date.now(); //sets the current time in milisecs
-      timerRunning = setInterval(self.update, 10); //setinterval starts the function every 20 miliseconds
+      if(!active){
+      startTime = Date.now();
+      updateInterval = setInterval(self.update, 10);
     }
-    active = true;
+    active=true;
   }
-
 
   self.stopTime = function () {
-    if (timeElapsed) {
-    stoppedTime = timeElapsed.getTime();
-  }
+    if (timeElapsed) stoppedTime = timeElapsed;
     active = false;
-    clearInterval(timerRunning);
-  }
-
-  self.setTime = function (newTime) {
-    time = newTime;
+    clearInterval(updateInterval);
   }
 
   self.resetTime = function () {
     self.stopTime();
-    self.setTime('00:00:00.000');
-    document.getElementsByClassName('display')[0].innerText=time;
+    // self.setTime();
+    document.getElementsByClassName('display')[0].innerText='00:00:00.000';
     stoppedTime = 0;
     timeElapsed = 0;
   }
 
-  //http://www.w3schools.com/jsref/jsref_getutchours.asp
   self.update = function () {
-    timeElapsed = new Date(Date.now() - startTime + stoppedTime);
-    time = timeElapsed.toISOString().substring(11,23);
-    seconds = time.substring(6,8);
-    document.getElementsByClassName('display')[0].innerText=time;
+    timeElapsed = getTimeElapsed();
+    updateDisplay(getFormatedTimeElapsed());
   };
+
   document.getElementsByClassName('start_btn')[0].onclick=self.startTime;
+
   document.getElementsByClassName('stop_btn')[0].onclick=self.stopTime;
+
   document.getElementsByClassName('reset_btn')[0].onclick=self.resetTime;
 
-  return self
+  return self;
 })();

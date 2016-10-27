@@ -10,26 +10,37 @@ QUnit.test( "testing if we can start the stopwatch", function( assert ) {
   stopWatch.startTime();
   assert.strictEqual(stopWatch.isActive(), true, "Passed!" );
 });
-//we should add one more test for stop time
-QUnit.test( "testing if we can stop the stopwatch", function( assert ) {
-  stopWatch.stopTime();
-  assert.strictEqual(active, false, "Passed!" );
-});
 
 QUnit.test( "testing if we can stop the stopwatch", function( assert ) {
   stopWatch.stopTime();
-  assert.strictEqual(active, false, "Passed!" );
+  assert.strictEqual(stopWatch.isActive(), false, "Passed!" );
+});
+QUnit.test("check if the stopped time is correct", function( assert ) {
+  var done = assert.async();
+  stopWatch.resetTime();
+  stopWatch.startTime();
+  setTimeout(function() {
+    stopWatch.stopTime();
+    assert.strictEqual(Math.ceil(stopWatch.getStoppedTime()/1000), 3, "Passed!");
+    done();
+  }, 3000);
 });
 
-QUnit.test( "testing if we can change the time", function( assert ) {
-  stopWatch.setTime('05:02:02');
-  assert.strictEqual(stopWatch.getTime(), '05:02:02', "Passed!" );
-});
+// QUnit.test( "testing if we can stop the stopwatch", function( assert ) {
+//   stopWatch.stopTime();
+//   assert.strictEqual(stopWatch.isActive(), false, "Passed!" );
+// });
+
+// QUnit.test( "testing if we can change the time", function( assert ) {
+//   stopWatch.setTime(60*1000*5 + 1000*2 + 2);
+//   assert.strictEqual(stopWatch.getTime(), "00:05:02.002", "Passed!" );
+// });
 
 QUnit.test( "testing if we can reset the time", function( assert ) {
   stopWatch.resetTime();
   assert.strictEqual(stopWatch.getTime(), '00:00:00.000', "Passed!" );
 });
+
 QUnit.test("test resetTime on the DOM", function(assert){
   document.getElementsByClassName('display')[0].innerText = 'whatever';
   stopWatch.resetTime();
@@ -39,12 +50,12 @@ QUnit.test("test resetTime on the DOM", function(assert){
 QUnit.test('tests if we can click on start and have it start', function (assert) {
   stopWatch.stopTime();
   document.getElementsByClassName('start_btn')[0].click();
-  assert.strictEqual(active, true, "passed!" );
+  assert.strictEqual(stopWatch.isActive(), true, "passed!" );
 });
 
 QUnit.test('tests if we can click on stop and have it stop', function (assert) {
   document.getElementsByClassName('stop_btn')[0].click();
-  assert.strictEqual(active, false, "passed!" );
+  assert.strictEqual(stopWatch.isActive(), false, "passed!" );
 });
 
 QUnit.test('tests if we can click on reset and have it update the DOM', function (assert) {
@@ -56,7 +67,7 @@ QUnit.test('tests if we can click on reset and have it update the DOM', function
 QUnit.test('tests if we can click on reset and have it update stop', function (assert) {
   stopWatch.startTime();
   document.getElementsByClassName('reset_btn')[0].click();
-  assert.strictEqual(active, false, "passed!");
+  assert.strictEqual(stopWatch.isActive(), false, "passed!");
 });
 
 
@@ -65,17 +76,7 @@ QUnit.test("Asynch Test", function( assert ) {
   stopWatch.resetTime();
   stopWatch.startTime();
   setTimeout(function() {
-    assert.strictEqual(seconds, '03', "got the right time!");
+    assert.strictEqual(stopWatch.getSeconds(), '03', "Passed!");
     done();
   }, 3100);
-});
-QUnit.test("check if the stopped time is correct", function( assert ) {
-  var done = assert.async();
-  stopWatch.resetTime();
-  stopWatch.startTime();
-  setTimeout(function() {
-    stopWatch.stopTime();
-    assert.strictEqual(Math.ceil(stoppedTime/1000), 3, "got the right time!");
-    done();
-  }, 3000);
 });
