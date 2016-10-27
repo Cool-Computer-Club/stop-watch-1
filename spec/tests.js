@@ -10,7 +10,7 @@ QUnit.test( "testing if we can start the stopwatch", function( assert ) {
   stopWatch.startTime();
   assert.strictEqual(stopWatch.isActive(), true, "Passed!" );
 });
-
+//we should add one more test for stop time
 QUnit.test( "testing if we can stop the stopwatch", function( assert ) {
   stopWatch.stopTime();
   assert.strictEqual(active, false, "Passed!" );
