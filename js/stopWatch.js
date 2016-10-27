@@ -1,4 +1,4 @@
-var stopWatch= {} ,active=false, time='00:00:00:000', startTime, hours, minutes, seconds, milliseconds, timerRunning, stopedTime=0;
+var stopWatch= {} ,active=false, time='00:00:00:000', startTime, hours, minutes, seconds, milliseconds, timeElapsed, timerRunning, stopedTime=0;
 
 stopWatch.getTime = function () {
     return time;
@@ -17,12 +17,16 @@ stopWatch.startTime = function () {
 }
 
 stopWatch.stopTime = function () {
-  stopedTime = timeElapsed.getTime();
+  if(stopedTime){ //checks if stoppedTime variable exists
+    stopedTime = timeElapsed.getTime();
+  };
   active = false;
   clearInterval(timerRunning);
 }
 
-stopWatch.setTime = function (newTime) {time=newTime;}
+stopWatch.setTime = function (newTime) {
+  time = newTime;
+}
 
 stopWatch.resetTime = function () {
   stopWatch.stopTime();
@@ -39,12 +43,20 @@ stopWatch.update = function () {
   minutes = timeElapsed.getUTCMinutes();
   seconds = timeElapsed.getUTCSeconds();
   milliseconds = timeElapsed.getUTCMilliseconds();
+  var strHours = hours.toString();
+  var strMinutes = minutes.toString();
   var strSeconds=seconds.toString();
   var strMilliseconds=milliseconds.toString();
+  if (strHours.length === 1) {
+    hours = '0' + hours;
+  }
+  if (strMinutes.length === 1) {
+    minutes = '0' + minutes;
+  }
   if(strSeconds.length===1){seconds='0'+seconds;}
   if(strMilliseconds.length===2){milliseconds='0'+milliseconds}
   if(strMilliseconds.length===1){milliseconds='00'+milliseconds}
-  time='0'+hours+':'+'0'+minutes+':'+seconds+':'+milliseconds;
+  time=hours+':'+minutes+':'+seconds+':'+milliseconds;
   document.getElementsByClassName('display')[0].innerText=time;
 };
 document.getElementsByClassName('start_btn')[0].onclick=stopWatch.startTime;
