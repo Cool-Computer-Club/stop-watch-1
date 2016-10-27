@@ -63,7 +63,7 @@ body {
   top: 50px;
   left: 3%;
   transform: rotate(2.4deg);
-  transition: all 12s;
+  transition: all 24s;
   transition-timing-function: ease-in-out;
 }
 
@@ -78,7 +78,7 @@ body {
   top: 50px;
   right: 4%;
   transform: rotate(-5deg);
-  transition: all 15s;
+  transition: all 30s;
   transition-timing-function: ease-in-out;
 }
 
