@@ -1,4 +1,4 @@
-var stopWatch= {} ,active=false, time='00:00:00', startTime, hours, minutes, seconds, milliseconds, timerRunning, stopedTime=0;
+var stopWatch= {} ,active=false, time='00:00:00:000', startTime, hours, minutes, seconds, milliseconds, timerRunning, stopedTime=0;
 
 stopWatch.getTime = function () {
     return time;
@@ -11,7 +11,7 @@ stopWatch.isActive = function () { return active;}
 stopWatch.startTime = function () {
   if (!active) {
     startTime = Date.now(); //sets the current time in milisecs
-    timerRunning = setInterval(stopWatch.update, 300); //setinterval starts the function every 20 miliseconds
+    timerRunning = setInterval(stopWatch.update, 10); //setinterval starts the function every 20 miliseconds
   }
   active = true;
 }
@@ -26,7 +26,7 @@ stopWatch.setTime = function (newTime) {time=newTime;}
 
 stopWatch.resetTime = function () {
   stopWatch.stopTime();
-  stopWatch.setTime('00:00:00');
+  stopWatch.setTime('00:00:00:000');
   document.getElementsByClassName('display')[0].innerText=time;
   stopedTime = 0;
   timeElapsed = 0;
