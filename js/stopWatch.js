@@ -1,9 +1,9 @@
 active=false;
 var seconds;
+var stoppedTime = 0;
 
 var stopWatch = (function() {
-  var self= {}, time='00:00:00:000', startTime, hours, minutes,
-      milliseconds, timeElapsed, timerRunning, stoppedTime=0;
+  var self= {}, time='00:00:00.000', startTime, timeElapsed, timerRunning;
 
   self.getTime = function () {return time;};
 
@@ -33,7 +33,7 @@ var stopWatch = (function() {
 
   self.resetTime = function () {
     self.stopTime();
-    self.setTime('00:00:00:000');
+    self.setTime('00:00:00.000');
     document.getElementsByClassName('display')[0].innerText=time;
     stoppedTime = 0;
     timeElapsed = 0;
@@ -42,20 +42,8 @@ var stopWatch = (function() {
   //http://www.w3schools.com/jsref/jsref_getutchours.asp
   self.update = function () {
     timeElapsed = new Date(Date.now() - startTime + stoppedTime);
-    hours = timeElapsed.getUTCHours();
-    minutes = timeElapsed.getUTCMinutes();
-    seconds = timeElapsed.getUTCSeconds();
-    milliseconds = timeElapsed.getUTCMilliseconds();
-    var strHours = hours.toString();
-    var strMinutes = minutes.toString();
-    var strSeconds=seconds.toString();
-    var strMilliseconds=milliseconds.toString();
-    if (strHours.length === 1) {hours = '0' + hours;}
-    if (strMinutes.length === 1) {minutes = '0' + minutes;}
-    if(strSeconds.length===1){seconds='0'+seconds;}
-    if(strMilliseconds.length===2){milliseconds='0'+milliseconds}
-    if(strMilliseconds.length===1){milliseconds='00'+milliseconds}
-    time=hours+':'+minutes+':'+seconds+':'+milliseconds;
+    time = timeElapsed.toISOString().substring(11,23);
+    seconds = time.substring(6,8);
     document.getElementsByClassName('display')[0].innerText=time;
   };
   document.getElementsByClassName('start_btn')[0].onclick=self.startTime;
