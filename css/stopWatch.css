@@ -1,5 +1,7 @@
 body {
   background-color: rgb(170, 157, 145);
+  -webkit-user-select: none;
+
 }
 .main-container {
   margin: auto;
@@ -27,7 +29,8 @@ body {
 .button:active {
   box-shadow: 0 5px rgb(102, 88, 99);
   transform: translateY(5px);
-  outline: 1px dashed black;
+  outline: none;
+
 }
 
 .display {
@@ -40,7 +43,8 @@ body {
   background-color: #6C8EAD;
   padding: 20px 10px;
   font-weight: bold;
-
+  max-width: 800px;
+  margin: 30px auto;
 }
 
 .heading {
@@ -103,5 +107,18 @@ body {
     width: 80%;
     margin: 30px auto;
     padding: 10px 10px
+  }
+}
+
+@media (min-width: 1200px) {
+  .heading {
+    font-size: 7.5rem;
+  }
+  .main-container {
+    max-width: 1000px
+  }
+
+  .display {
+    margin-top: 50px;
   }
 }
