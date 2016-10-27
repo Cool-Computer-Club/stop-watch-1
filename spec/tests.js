@@ -71,13 +71,13 @@ QUnit.test("Asynch Test", function( assert ) {
     done();
   }, 3100);
 });
-QUnit.test("check if the stoped time is correct", function( assert ) {
+QUnit.test("check if the stopped time is correct", function( assert ) {
   var done = assert.async();
   stopWatch.resetTime();
   stopWatch.startTime();
   setTimeout(function() {
     stopWatch.stopTime();
-    assert.strictEqual(Math.ceil(stopedTime/1000), 3, "got the right time!");
+    assert.strictEqual(Math.ceil(stoppedTime/1000), 3, "got the right time!");
     done();
   }, 3000);
 });
