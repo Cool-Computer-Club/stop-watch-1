@@ -1,6 +1,5 @@
 body {
   background-color:gray;
-  font-family: monospace;
 }
 .main-container {
   margin: auto;
@@ -16,7 +15,7 @@ body {
   font-size:30px;
   border-radius: 50px;
   background-color: #006600;
-
+  font-family: monospace;
 
 }
 
@@ -25,4 +24,6 @@ body {
   font-size: 5rem;
   border-radius: 5px;
   -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.31);
+  font-family: monospace;
+
 }
