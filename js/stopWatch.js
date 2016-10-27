@@ -18,7 +18,9 @@ var stopWatch = (function() {
 
 
   self.stopTime = function () {
+    if (timeElapsed) {
     stopedTime = timeElapsed.getTime();
+  }
     active = false;
     clearInterval(timerRunning);
   }
@@ -54,7 +56,7 @@ var stopWatch = (function() {
     time=hours+':'+minutes+':'+seconds+':'+milliseconds;
     document.getElementsByClassName('display')[0].innerText=time;
   };
-  //document.getElementsByClassName('start_btn')[0].onclick=self.startTime;
+  document.getElementsByClassName('start_btn')[0].onclick=self.startTime;
   document.getElementsByClassName('stop_btn')[0].onclick=self.stopTime;
   document.getElementsByClassName('reset_btn')[0].onclick=self.resetTime;
 
