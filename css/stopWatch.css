@@ -9,6 +9,7 @@ body {
 }
 
 .button {
+  color: #F6F7EB;
   height: 90px;
   width: 120px;
   font-size: 1.5rem;
@@ -43,11 +44,11 @@ body {
 }
 
 .heading {
-  color: grey;
+  color: #5C415D;
   font-family:fantasy;
   font-size: 6rem;
   margin: 80px auto -20px auto;
-  text-shadow: 2px 2px black;
+  text-shadow: 3px 3px black;
 }
 
 
