@@ -11,7 +11,7 @@ stopWatch.isActive = function () { return active;}
 stopWatch.startTime = function () {
   if (!active) {
     startTime = Date.now(); //sets the current time in milisecs
-    timerRunning = setInterval(stopWatch.update, 20); //setinterval starts the function every 20 miliseconds
+    timerRunning = setInterval(stopWatch.update, 300); //setinterval starts the function every 20 miliseconds
   }
   active = true;
 }
@@ -39,7 +39,12 @@ stopWatch.update = function () {
   minutes = timeElapsed.getUTCMinutes();
   seconds = timeElapsed.getUTCSeconds();
   milliseconds = timeElapsed.getUTCMilliseconds();
-  time=hours+':'+minutes+':'+seconds+':'+milliseconds;
+  var strSeconds=seconds.toString();
+  var strMilliseconds=milliseconds.toString();
+  if(strSeconds.length===1){seconds='0'+seconds;}
+  if(strMilliseconds.length===2){milliseconds='0'+milliseconds}
+  if(strMilliseconds.length===1){milliseconds='00'+milliseconds}
+  time='0'+hours+':'+'0'+minutes+':'+seconds+':'+milliseconds;
   document.getElementsByClassName('display')[0].innerText=time;
 };
 document.getElementsByClassName('start_btn')[0].onclick=stopWatch.startTime;
