@@ -17,11 +17,11 @@ stopWatch.startTime = function () {
 }
 
 stopWatch.stopTime = function () {
-  if(stopedTime){ //checks if stoppedTime variable exists
-    stopedTime = timeElapsed.getTime();
-  };
+  stopedTime = timeElapsed.getTime();
+
   active = false;
   clearInterval(timerRunning);
+  console.log(stopedTime);
 }
 
 stopWatch.setTime = function (newTime) {
