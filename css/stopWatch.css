@@ -1,29 +1,80 @@
 body {
-  background-color:gray;
+  background-color: rgb(170, 157, 145);
 }
 .main-container {
   margin: auto;
-  width: 80%;
-  max-width: 900px;
-  padding: 100px;
+  width: 95%;
+  max-width: 500px;
   text-align: center;
 }
 
 .button {
-  height: 100px;
-  width: 100px;
+  height: 90px;
+  width: 120px;
   font-size:30px;
-  border-radius: 50px;
+  border-radius: 20px;
+  margin: auto 10px;
   background-color: #006600;
-  font-family: monospace;
+  font-family: fantasy;
+  box-shadow: 0 10px #0d4f0d;
+}
 
+.button:focus {
+  outline: none;
+}
+.button:active {
+  box-shadow: 0 5px #0d4f0d;
+  transform: translateY(5px);
+  outline: 1px dashed black;
 }
 
 .display {
   color: #312F2F;
-  font-size: 5rem;
+  font-size: 3.5rem;
   border-radius: 5px;
-  -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.31);
+  -webkit-box-shadow: inset 6px 6px 5px 0px rgba(0,0,0,0.28);
   font-family: monospace;
+  overflow: auto;
+  background-color: #6C8EAD;
+  padding: 10px 10px
 
+}
+
+.heading {
+  color: grey;
+  font-family:fantasy;
+  font-size: 6rem;
+  margin: 30px auto;
+}
+
+
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 200px solid transparent;
+  border-right: 400px solid transparent;
+  border-top: 700px solid #f00;
+  z-index: -1;
+  position: absolute;;
+  top: 50px;
+  left: 3%;
+  transform: rotate(2.4deg);
+  transition: all 12s;
+  transition-timing-function: ease-in-out;
+}
+
+.triangle2 {
+  width: 0;
+  height: 0;
+  border-left: 250px solid transparent;
+  border-right: 230px solid transparent;
+  border-top: 620px solid yellow;
+  z-index: -1;
+  position: absolute;;
+  top: 50px;
+  right: 4%;
+  transform: rotate(-5deg);
+  transition: all 15s;
+  transition-timing-function: ease-in-out;
 }
