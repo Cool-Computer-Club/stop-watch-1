@@ -16,10 +16,9 @@ var stopWatch = (function() {
     active = true;
   }
 
+
   self.stopTime = function () {
-    if (timeElapsed){
     stopedTime = timeElapsed.getTime();
-  }
     active = false;
     clearInterval(timerRunning);
   }

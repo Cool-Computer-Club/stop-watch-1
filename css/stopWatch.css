@@ -37,7 +37,8 @@ body {
   font-family: monospace;
   overflow: auto;
   background-color: #6C8EAD;
-  padding: 20px 10px
+  padding: 20px 10px;
+  font-weight: bold;
 
 }
 
@@ -79,6 +80,13 @@ body {
   transform: rotate(-5deg);
   transition: all 15s;
   transition-timing-function: ease-in-out;
+}
+
+.main-container:hover ~ .triangle {
+  transform: skewX(27deg);
+}
+.main-container:hover ~ .triangle2 {
+  transform: skewX(-40deg);
 }
 
 @media (max-width: 600px) {
