@@ -1,47 +1,38 @@
-var stopWatch= {}
-var active=false;
-var time='00:00:00';
-var startTime;
-var hours, minutes, seconds, milliseconds;
-var timerRunning;
-var stopedTime=0;
+var stopWatch= {} ,active=false, time='00:00:00', startTime, hours, minutes, seconds, milliseconds, timerRunning, stopedTime=0;
 
 stopWatch.getTime = function () {
-    console.log(hours, minutes, seconds, milliseconds);
     return time;
   };
 
-stopWatch.isActive = function () {
-  return active;
-}
+//stops the time
+stopWatch.isActive = function () { return active;}
+// isactive and gettime are not used in the js code and they are only good for the test code. oops
 
-stopWatch.start = function () {
+stopWatch.startTime = function () {
   if (!active) {
-    startTime = Date.now();
-    timerRunning = setInterval(stopWatch.update, 20);
+    startTime = Date.now(); //sets the current time in milisecs
+    timerRunning = setInterval(stopWatch.update, 20); //setinterval starts the function every 20 miliseconds
   }
   active = true;
-
 }
 
-stopWatch.stop = function () {
+stopWatch.stopTime = function () {
   stopedTime = timeElapsed.getTime();
-  console.log(stopedTime)
   active = false;
   clearInterval(timerRunning);
 }
 
-stopWatch.setTime = function (newTime){
-  time=newTime;
-}
+stopWatch.setTime = function (newTime) {time=newTime;}
 
 stopWatch.resetTime = function () {
-  stopWatch.stop();
+  stopWatch.stopTime();
   stopWatch.setTime('00:00:00');
   document.getElementsByClassName('display')[0].innerText=time;
   stopedTime = 0;
+  timeElapsed = 0;
 }
 
+//http://www.w3schools.com/jsref/jsref_getutchours.asp
 stopWatch.update = function () {
   timeElapsed = new Date(Date.now() - startTime + stopedTime);
   hours = timeElapsed.getUTCHours();
@@ -51,6 +42,6 @@ stopWatch.update = function () {
   time=hours+':'+minutes+':'+seconds+':'+milliseconds;
   document.getElementsByClassName('display')[0].innerText=time;
 };
-document.getElementsByClassName('start_btn')[0].onclick=stopWatch.start;
-document.getElementsByClassName('stop_btn')[0].onclick=stopWatch.stop;
+document.getElementsByClassName('start_btn')[0].onclick=stopWatch.startTime;
+document.getElementsByClassName('stop_btn')[0].onclick=stopWatch.stopTime;
 document.getElementsByClassName('reset_btn')[0].onclick=stopWatch.resetTime;
