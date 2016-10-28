@@ -32,7 +32,7 @@ var stopWatch = (function() {
   self.startTime = function () {
       if(!active){
       startTime = Date.now();
-      updateInterval = setInterval(self.update, 10);
+      updateInterval = setInterval(self.update, 11);
     }
     active=true;
   }
