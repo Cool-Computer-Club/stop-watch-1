@@ -71,7 +71,7 @@ QUnit.test('tests if we can click on reset and have it update stop', function (a
 });
 
 
-QUnit.test("Asynch Test", function( assert ) {
+QUnit.test("tests whether time counts", function( assert ) {
   var done = assert.async();
   stopWatch.resetTime();
   stopWatch.startTime();
@@ -80,3 +80,23 @@ QUnit.test("Asynch Test", function( assert ) {
     done();
   }, 3100);
 });
+
+QUnit.test('if we can start, stop, restart, and have time continue updating', function ( assert ) {
+  var done = assert.async();
+  var time1, time2;
+  stopWatch.resetTime();
+  stopWatch.startTime();
+  setTimeout(function () {
+    stopWatch.stopTime();
+    time1 = stopWatch.getTime();
+    setTimeout(function () {
+      stopWatch.startTime();
+      setTimeout(function () {
+        stopWatch.stopTime();
+        time2 = stopWatch.getTime();
+        assert.ok(time1 !== time2, 'passssssed!!!');
+        done();
+      }, 1100)
+    }, 1100)
+  }, 1100)
+})
