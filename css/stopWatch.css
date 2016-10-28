@@ -156,9 +156,7 @@ body {
 }
 
 .main-container:hover ~ .triangle2 {
-  /*transform: skewX(-40deg);
-  transform: rotateX(30deg);
-  transform: translate(200px, -20px);*/
+
   transform: rotate3d(1, 2, -1, -192deg) skewX(-40deg);
 
 }
@@ -168,9 +166,6 @@ body {
 }
 
 .main-container:hover ~ .triangle4 {
-  /*transform: skewX(-40deg);
-  transform: rotateX(30deg);
-  transform: translate(200px, -20px);*/
   transform: rotate3d(1, 2, -1, 70deg);
 
 }
@@ -179,9 +174,7 @@ body {
 }
 
 .main-container:hover ~ .triangle6 {
-
   transform: rotate3d(-1, 0.7, -0.5, 240deg);
-
 }
 
 @media (max-width: 600px) {
