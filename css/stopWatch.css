@@ -1,7 +1,7 @@
 body {
   background-color: rgb(170, 157, 145);
   -webkit-user-select: none;
-
+  perspective: 2000px;
 }
 .main-container {
   margin: auto;
@@ -58,6 +58,9 @@ body {
 
 
 
+
+
+
 .triangle {
   width: 0;
   height: 0;
@@ -66,7 +69,7 @@ body {
   border-top: 700px solid #E94F37;
   z-index: -1;
   position: absolute;;
-  top: 50px;
+  top: 3px;
   left: 3%;
   transform: rotate(2.4deg);
   transition: all 24s;
@@ -81,18 +84,97 @@ body {
   border-top: 620px solid #BFBC1E;
   z-index: -1;
   position: absolute;;
-  top: 50px;
+  top: 0px;
   right: 4%;
   transform: rotate(-5deg);
   transition: all 30s;
   transition-timing-function: ease-in-out;
 }
+.triangle3 {
+  width: 0;
+  height: 0;
+  border-left: 200px solid transparent;
+  border-right: 400px solid transparent;
+  border-top: 700px solid #e4e14e;
+  z-index: -1;
+  position: absolute;;
+  top: 3px;
+  left: 3%;
+  transform: rotate(2.4deg);
+  transition: all 27s;
+  transition-timing-function: ease-in-out;
+}
+
+.triangle4 {
+  width: 0;
+  height: 0;
+  border-left: 250px solid transparent;
+  border-right: 230px solid transparent;
+  border-top: 620px solid #a6301e;
+  z-index: -1;
+  position: absolute;;
+  top: 0px;
+  right: 4%;
+  transform: rotate(-5deg);
+  transition: all 25s;
+  transition-timing-function: ease-in-out;
+}
+
+.triangle5 {
+  width: 0;
+  height: 0;
+  border-left: 250px solid transparent;
+  border-right: 230px solid transparent;
+  border-top: 620px solid #582017;
+  z-index: -1;
+  position: absolute;;
+  top: 0px;
+  right: 4%;
+  transform: rotate(-5deg);
+  transition: all 25s;
+  transition-timing-function: ease-in-out;
+}
+
+.triangle6 {
+  width: 0;
+  height: 0;
+  border-left: 100px solid transparent;
+  border-right: 300px solid transparent;
+  border-top: 600px solid #ccc93b;
+  z-index: -1;
+  position: absolute;;
+  top: 3px;
+  left: 13%;
+  transform: rotate(-5deg);
+  transition: all 27s;
+  transition-timing-function: ease-in-out;
+}
 
 .main-container:hover ~ .triangle {
   transform: skewX(27deg);
+  transform: rotate3d(-1, -2, 1, 92deg);
 }
+
 .main-container:hover ~ .triangle2 {
-  transform: skewX(-40deg);
+
+  transform: rotate3d(1, 2, -1, -192deg) skewX(-40deg);
+
+}
+.main-container:hover ~ .triangle3 {
+  transform: skewX(27deg);
+  transform: rotate3d(-1, 2, -1, 92deg) skewX(27deg);
+}
+
+.main-container:hover ~ .triangle4 {
+  transform: rotate3d(1, 2, -1, 70deg);
+
+}
+.main-container:hover ~ .triangle5 {
+  transform: rotate3d(-0.5, 0.3, 1, 52deg) skewX(-30deg);
+}
+
+.main-container:hover ~ .triangle6 {
+  transform: rotate3d(-1, 0.7, -0.5, 240deg);
 }
 
 @media (max-width: 600px) {
