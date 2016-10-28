@@ -1,6 +1,6 @@
 body {
   background-color: rgb(170, 157, 145);
-  -webkit-user-select: none;
+  /*-webkit-user-select: none;*/
   perspective: 2000px;
 }
 .main-container {
